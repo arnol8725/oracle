@@ -1,0 +1,7 @@
+com\elektra\oracle\conexionoracle\ConexionoracleApplication.class
+com\elektra\oracle\conexionoracle\controler\RestController.class
+com\elektra\oracle\conexionoracle\services\AgendaServices.class
+com\elektra\oracle\conexionoracle\configuration\WebMvcConfiguration.class
+com\elektra\oracle\conexionoracle\repository\AgendaRepository.class
+com\elektra\oracle\conexionoracle\entity\Agenda.class
+com\elektra\oracle\conexionoracle\service\impl\AgendaServiceImpl.class

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: conexionoracle
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: aperaltap
+Implementation-Vendor-Id: com.elektra.oracle
+Build-Jdk: 1.8.0_171
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/conexionoracle
+Created-By: Maven Integration for Eclipse
+
