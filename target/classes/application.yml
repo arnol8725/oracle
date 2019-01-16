@@ -4,6 +4,7 @@ spring:
        username: ARNOL  
        password: choche       
        driver-class-name: oracle.jdbc.OracleDriver
+      
     jpa:
         database: default
         show-sql: true

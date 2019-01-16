@@ -10,6 +10,8 @@ public interface AgendaServices {
 	
 	public abstract List<Agenda> listAllContacts();
 	
+	public abstract List<Agenda> listTodosContacts();
+	
 	public abstract void saveContacts(Agenda a);
 
 }

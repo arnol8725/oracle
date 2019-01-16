@@ -5,11 +5,27 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedStoredProcedureQueries;
+import javax.persistence.NamedStoredProcedureQuery;
+import javax.persistence.ParameterMode;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.StoredProcedureParameter;
 import javax.persistence.Table;
+
+import org.hibernate.Hibernate;
 
 @Entity
 @Table(name = "AGENDA")
+@NamedStoredProcedureQueries({
+@NamedStoredProcedureQuery(name = "detAgendaProcedure",
+procedureName = "ARNOL.PAAGENDA.GETAGENDA",
+resultClasses = Agenda.class,
+parameters = {
+	@StoredProcedureParameter(mode = ParameterMode.IN, name = "idSS", type = Long.class),
+    @StoredProcedureParameter(mode = ParameterMode.REF_CURSOR, name = "rspCursor", type = Class.class)
+
+}
+)})
 public class Agenda implements java.io.Serializable {
 	/**
 	 * 

@@ -32,7 +32,9 @@ public class RestController {
 	@CrossOrigin
 	@GetMapping("/contactosAgenda")	
 	public ResponseEntity<List<Agenda>> checkRest(){
-		List<Agenda> lista = agendaServiceImpl.listAllContacts();
+		//agendaServiceImpl.listTodosContacts();
+		//List<Agenda> lista = agendaServiceImpl.listAllContacts();
+		List<Agenda> lista = agendaServiceImpl.listTodosContacts();
 		return new ResponseEntity<List<Agenda>>(lista,HttpStatus.OK);
 	}
 	
@@ -50,7 +52,8 @@ public class RestController {
 		 	
 	      	 
 	        List<Agenda> lista = agendaServiceImpl.listAllContacts();
-			return new ResponseEntity<List<Agenda>>(lista,HttpStatus.OK);
+			//return new ResponseEntity<List<Agenda>>(lista,HttpStatus.OK);
+	        return null;
 	    }
 
 }
