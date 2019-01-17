@@ -1,7 +1,12 @@
-com\elektra\oracle\conexionoracle\ConexionoracleApplication.class
-com\elektra\oracle\conexionoracle\controler\RestController.class
-com\elektra\oracle\conexionoracle\services\AgendaServices.class
+com\elektra\oracle\conexionoracle\entity\Respuesta.class
 com\elektra\oracle\conexionoracle\configuration\WebMvcConfiguration.class
-com\elektra\oracle\conexionoracle\repository\AgendaRepository.class
 com\elektra\oracle\conexionoracle\entity\Agenda.class
 com\elektra\oracle\conexionoracle\service\impl\AgendaServiceImpl.class
+com\elektra\oracle\conexionoracle\entity\MyJobTwo.class
+com\elektra\oracle\conexionoracle\configuration\QuartzConfiguration.class
+com\elektra\oracle\conexionoracle\ConexionoracleApplication.class
+com\elektra\oracle\conexionoracle\controler\RestController.class
+com\elektra\oracle\conexionoracle\entity\MyJobOne.class
+com\elektra\oracle\conexionoracle\services\AgendaServices.class
+com\elektra\oracle\conexionoracle\dao\Consultas.class
+com\elektra\oracle\conexionoracle\repository\AgendaRepository.class

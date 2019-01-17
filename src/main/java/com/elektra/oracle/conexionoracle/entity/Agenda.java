@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedStoredProcedureQueries;
 import javax.persistence.NamedStoredProcedureQuery;
 import javax.persistence.ParameterMode;
@@ -26,6 +28,15 @@ parameters = {
 
 }
 )})
+@NamedNativeQueries({
+    @NamedNativeQuery(
+            name    =   "fn_post_and_comments",
+            query   =   "{ ? = call ARNOL.PAAGENDA.FN_GETAGENDA( ? ) }",            
+            resultClass=Agenda.class
+    )
+    
+})
+
 public class Agenda implements java.io.Serializable {
 	/**
 	 * 

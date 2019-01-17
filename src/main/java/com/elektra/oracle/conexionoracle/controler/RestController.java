@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.elektra.oracle.conexionoracle.entity.Agenda;
+import com.elektra.oracle.conexionoracle.entity.Respuesta;
 import com.elektra.oracle.conexionoracle.service.impl.AgendaServiceImpl;
 
 
@@ -25,17 +26,21 @@ import com.elektra.oracle.conexionoracle.service.impl.AgendaServiceImpl;
 @RequestMapping(value="/rest",method={RequestMethod.OPTIONS,RequestMethod.GET,RequestMethod.POST} )
 public class RestController {
 	private static final Log LOG = LogFactory.getLog(RestController.class);
+	
+	
+	
 	@Autowired
     @Qualifier("agendaServiceImpl")
 	private AgendaServiceImpl agendaServiceImpl;
 	
 	@CrossOrigin
 	@GetMapping("/contactosAgenda")	
-	public ResponseEntity<List<Agenda>> checkRest(){
+	public ResponseEntity<Respuesta> checkRest(){
+		Respuesta resp = new Respuesta();
 		//agendaServiceImpl.listTodosContacts();
 		//List<Agenda> lista = agendaServiceImpl.listAllContacts();
-		List<Agenda> lista = agendaServiceImpl.listTodosContacts();
-		return new ResponseEntity<List<Agenda>>(lista,HttpStatus.OK);
+		resp = agendaServiceImpl.listTodosContacts();
+		return new ResponseEntity<Respuesta>(resp,HttpStatus.OK);
 	}
 	
 	 @RequestMapping(value = "/addAgenda", method = {RequestMethod.POST,RequestMethod.OPTIONS})

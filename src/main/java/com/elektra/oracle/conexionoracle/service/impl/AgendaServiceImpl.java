@@ -17,7 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.elektra.oracle.conexionoracle.dao.Consultas;
 import com.elektra.oracle.conexionoracle.entity.Agenda;
+import com.elektra.oracle.conexionoracle.entity.Respuesta;
 import com.elektra.oracle.conexionoracle.repository.AgendaRepository;
 
 import com.elektra.oracle.conexionoracle.services.AgendaServices;
@@ -29,8 +31,11 @@ public class AgendaServiceImpl implements AgendaServices {
 	/*@Autowired
     DataSource dataSource;
 	*/
-	@PersistenceContext
-    private EntityManager entityManager;
+	/*@PersistenceContext
+    private EntityManager entityManager;*/
+	
+	@Autowired
+	private Consultas consulta;
 	
 	@Autowired
     @Qualifier("agendaReposritory")
@@ -51,41 +56,23 @@ public class AgendaServiceImpl implements AgendaServices {
 	}
 
 	@Override
-	public List<Agenda> listTodosContacts() {
+	public Respuesta listTodosContacts() {
+		Respuesta salida = new Respuesta();
 		List<Agenda> det = new ArrayList<Agenda>();
+		salida.detAgenda = new ArrayList<Agenda>();
 		// TODO Auto-generated method stub
 		try {
-			
-			LOG.info("El valor del stored");
-			 //det = agendaRepository.detAgendaProcedures(new Long(1));
-			
-			StoredProcedureQuery query = entityManager
-				    .createStoredProcedureQuery("ARNOL.PAAGENDA.GETAGENDA")
-				    .registerStoredProcedureParameter(1, Long.class,
-				         ParameterMode.IN)
-				    .registerStoredProcedureParameter(2, Class.class,
-				         ParameterMode.REF_CURSOR)
-				    .setParameter(1, 1L);
-				 
-				query.execute();
-				
-				
-				List<Object[]> postComments = query.getResultList();
-				
-				Object[] postAndComment = postComments.get(0);
-				LOG.info("El valor del stored"+ postAndComment[1].toString());
-				//Agenda post = (Agenda) postAndComment[0];
-				
-			//det.add(post);
-			LOG.info("det =" +postAndComment);			
-			
-			//getListAgenda
+			/*det=  consulta.listTodosContactsFuncion();
+			LOG.info("funcion =" +det.size());*/
+			salida.detAgenda = consulta.listTodosContacts();
 		}catch ( HibernateException e) {
 			// TODO: handle exception
 			LOG.info("error =" +e.getMessage().toString());
+			salida.error=true;
+			salida.mensaje="Error al consultar informacion";
 		}
 		
-		return det;
+		return salida;
 	}
 	
 	
